@@ -174,7 +174,10 @@ export const modifyImage = async ({
     await bucket.upload(modifiedFile, {
       destination: modifiedFilePath,
       metadata,
+      public: true,
+      predefinedAcl: 'publicRead'
     });
+    await bucket.file(modifiedFilePath).makePublic();
     logs.imageUploaded(modifiedFile);
 
     return { size, success: true };

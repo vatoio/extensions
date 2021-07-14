@@ -125,6 +125,8 @@ export const generateResizedImage = functions.storage.object().onFinalize(
 
       const tasks: Promise<ResizedImageResult>[] = [];
 
+      logs.logInfo(JSON.stringify(imageTypes));
+      
       imageTypes.forEach((format) => {
         imageSizes.forEach((size) => {
           tasks.push(

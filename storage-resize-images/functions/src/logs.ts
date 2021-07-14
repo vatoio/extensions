@@ -160,3 +160,7 @@ export const remoteFileDeleted = (path: string) => {
 export const remoteFileDeleting = (path: string) => {
   logger.log(`Deleting original file from storage bucket: '${path}'`);
 };
+
+export const logInfo = (message: string) => {
+  logger.log(message);
+};
